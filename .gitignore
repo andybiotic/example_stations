@@ -1,3 +1,4 @@
 .DS_Store
-.nmlcache/cows_cargo.png.cacheindex
-.nmlcache/cows_cargo.png.cache
+*.cacheindex
+*.cache
+example_stations.grf
