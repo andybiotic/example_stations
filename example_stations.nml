@@ -1,3 +1,5 @@
+/* This section defines the grf metadata, including the grfid. */
+
 grf {
     grfid: "XXX\01";
     name: string(STR_GRF_NAME);
@@ -11,14 +13,21 @@ if (version_openttd(1,2,0,22723) > openttd_version) {
 }
 
 cargotable {
-    LVST
+    PASS
+}
+
+/* This switch us used to determine the availability of the tile in the station build window, depending on the current year */
+
+switch (FEAT_STATIONS, SELF, switch_intro_year_1960, current_year) {
+  0..1959: 0;
+  default: 1;
 }
 
 /***** EXAMPLE STATION *****/
 
 /***** PLATFORM LEFT *****/
 
-spriteset (example_platform_left, "stations_example.png") {
+spriteset (example_platform_left, "stations_1.png") {
     [  10, 10, 64, 64, -32, -34 ]
     [  80, 10, 64, 64, -32, -34 ]
 }
@@ -63,8 +72,6 @@ item(FEAT_STATIONS, example_left) {
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
         cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
     }
     graphics {
         sprite_layouts: [platform_left_sw_ne(0), platform_left_se_nw(0)];
@@ -76,7 +83,7 @@ item(FEAT_STATIONS, example_left) {
 
 /***** PLATFORM RIGHT *****/
 
-spriteset (example_platform_right, "stations_example.png") {
+spriteset (example_platform_right, "stations_1.png") {
     [  150, 10, 64, 64, -32, -34 ]
     [  220, 10, 64, 64, -32, -34 ]
 }
@@ -121,8 +128,6 @@ item(FEAT_STATIONS, example_right) {
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
         cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
     }
     graphics {
         sprite_layouts: [platform_right_sw_ne(0), platform_right_se_nw(0)];
@@ -135,7 +140,7 @@ item(FEAT_STATIONS, example_right) {
 
 /***** PLATFORM SOUTH END LEFT *****/
 
-spriteset (example_platform_south_end_left, "stations_example.png") {
+spriteset (example_platform_south_end_left, "stations_1.png") {
     [  290, 10, 64, 64, -32, -34 ]
     [  360, 10, 64, 64, -32, -34 ]
 }
@@ -180,10 +185,9 @@ item(FEAT_STATIONS, example_south_end_left) {
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
         cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
     }
     graphics {
+        availability: switch_intro_year_1960;
         sprite_layouts: [platform_south_end_left_sw_ne(0), platform_south_end_left_se_nw(0)];
         select_tile_type: 2;
         purchase: example_platform_south_end_left;
@@ -194,7 +198,7 @@ item(FEAT_STATIONS, example_south_end_left) {
 
 /***** PLATFORM SOUTH END RIGHT *****/
 
-spriteset (example_platform_south_end_right, "stations_example.png") {
+spriteset (example_platform_south_end_right, "stations_1.png") {
     [  430, 10, 64, 64, -32, -34 ]
     [  500, 10, 64, 64, -32, -34 ]
 }
@@ -239,10 +243,9 @@ item(FEAT_STATIONS, example_south_end_right) {
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
         cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
     }
     graphics {
+        availability: switch_intro_year_1960;
         sprite_layouts: [platform_south_end_right_sw_ne(0), platform_south_end_right_se_nw(0)];
         select_tile_type: 2;
         purchase: example_platform_south_end_right;
@@ -253,7 +256,7 @@ item(FEAT_STATIONS, example_south_end_right) {
 
 /***** PLATFORM NORTH END LEFT *****/
 
-spriteset (example_platform_north_end_left, "stations_example.png") {
+spriteset (example_platform_north_end_left, "stations_1.png") {
     [  570, 10, 64, 64, -32, -34 ]
     [  640, 10, 64, 64, -32, -34 ]
 }
@@ -297,11 +300,10 @@ item(FEAT_STATIONS, example_north_end_left) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
+        cargo_threshold:        160;  
     }
     graphics {
+        availability: switch_intro_year_1960;
         sprite_layouts: [platform_north_end_left_sw_ne(0), platform_north_end_left_se_nw(0)];
         select_tile_type: 2;
         purchase: example_platform_north_end_left;
@@ -312,7 +314,7 @@ item(FEAT_STATIONS, example_north_end_left) {
 
 /***** PLATFORM NORTH END RIGHT *****/
 
-spriteset (example_platform_north_end_right, "stations_example.png") {
+spriteset (example_platform_north_end_right, "stations_1.png") {
     [  710, 10, 64, 64, -32, -34 ]
     [  780, 10, 64, 64, -32, -34 ]
 }
@@ -356,28 +358,237 @@ item(FEAT_STATIONS, example_north_end_right) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
+        cargo_threshold:        160;   
     }
     graphics {
+        availability: switch_intro_year_1960;
         sprite_layouts: [platform_north_end_right_sw_ne(0), platform_north_end_right_se_nw(0)];
         select_tile_type: 2;
         purchase: example_platform_north_end_right;
         example_platform_north_end_right;
     }
+} 
+
+/***********************************/
+/***** OVERBRIDGE ******************/
+/***********************************/
+
+/***** OVERBRIDGE LEFT *****/
+
+spriteset (example_overpass_left, "stations_1.png") {
+    [  10, 80, 64, 64, -32, -34 ]
+    [  80, 80, 64, 64, -32, -34 ]
+    [  150, 80, 64, 64, -32, -34 ]
+
+    [  220, 80, 64, 64, -32, -34 ]
+    [  290, 80, 64, 64, -32, -34 ]
+    [  360, 80, 64, 64, -32, -34 ]
+}
+
+spritelayout example_overpass_left_sw_ne(a) {
+    ground {
+        sprite: GROUNDSPRITE_RAIL_X;
+    }
+    building {
+        sprite:         DEFAULT(0);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        16;
+        yextent:        5;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+    building {
+        sprite:         DEFAULT(1);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        8;
+        yextent:        16;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+        building {
+        sprite:         DEFAULT(2);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        8;
+        yextent:        16;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+}
+
+spritelayout example_overpass_left_se_nw(a) {
+    ground {
+        sprite: GROUNDSPRITE_RAIL_Y;
+    }
+    building {
+        sprite:         DEFAULT(5);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        2;
+        yextent:        6;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+    building {
+        sprite:         DEFAULT(4);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        6;
+        yextent:        8;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+        building {
+        sprite:         DEFAULT(3);
+        xoffset:        11;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        5;
+        yextent:        6;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+}
+
+item(FEAT_STATIONS, example_left_overpass) {
+    property {
+        class:                  "XMPL";
+        classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
+        name:                   string(STR_NAME_STATION_EXAMPLE_OVERBRIDGE);
+    }
+    graphics {
+        sprite_layouts: [example_overpass_left_sw_ne(0), example_overpass_left_se_nw(0)];
+        select_tile_type: 2;
+        purchase: example_overpass_left;
+        example_overpass_left;
+    }
+}
+
+
+/***** OVERBRIDGE RIGHT *****/
+
+spriteset (example_overpass_right, "stations_1.png") {
+    [  430, 80, 64, 64, -32, -34 ]
+    [  500, 80, 64, 64, -32, -34 ]
+    [  570, 80, 64, 64, -32, -34 ]
+
+    [  640, 80, 64, 64, -32, -34 ]
+    [  710, 80, 64, 64, -32, -34 ]
+    [  780, 80, 64, 64, -32, -34 ]
+}
+
+spritelayout example_overpass_right_sw_ne(a) {
+    ground {
+        sprite: GROUNDSPRITE_RAIL_X;
+    }
+    building {
+        sprite:         DEFAULT(0);
+        xoffset:        0;
+        yoffset:        12;
+        zoffset:        0;
+        xextent:        16;
+        yextent:        5;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+    building {
+        sprite:         DEFAULT(1);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        8;
+        yextent:        3;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+}
+
+spritelayout example_overpass_right_se_nw(a) {
+    ground {
+        sprite: GROUNDSPRITE_RAIL_Y;
+    }
+            building {
+        sprite:         DEFAULT(3);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        16;
+        yextent:        6;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+    building {
+        sprite:         DEFAULT(4);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        16;
+        yextent:        6;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+        building {
+        sprite:         DEFAULT(5);
+        xoffset:        0;
+        yoffset:        1;
+        zoffset:        0;
+        xextent:        5;
+        yextent:        16;
+        zextent:        30;
+        recolour_mode:  RECOLOUR_REMAP;
+        palette:        PALETTE_USE_DEFAULT;
+    }
+}
+
+item(FEAT_STATIONS, example_right_overpass) {
+    property {
+        class:                  "XMPL";
+        classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
+        name:                   string(STR_NAME_STATION_EXAMPLE_OVERBRIDGE);
+    }
+    graphics {
+        sprite_layouts: [example_overpass_right_sw_ne(0), example_overpass_right_se_nw(0)];
+        select_tile_type: 2;
+        purchase: example_overpass_right;
+        example_overpass_right;
+    }
 }
 
 
 
-/***** BULDING EXAMPLE *****/
+/***** TWO TILE BUILDING EXAMPLE *****/
+/* This is a building comprised of two unique tiles. */
+/* First we must set the two tiles, and provide two orientations for each. */
 
-spriteset (building_1, "stations_example.png") {
-    [ 10, 80, 64, 64, -32, -32 ]
-    [ 80, 80, 64, 64, -32, -32 ]
+spriteset (building_1, "stations_1.png") {
+    [ 10, 150, 64, 64, -32, -32 ]
+    [ 80, 150, 64, 64, -32, -32 ]
+}
+spriteset (building_2, "stations_1.png") {
+    [ 150, 150, 64, 64, -32, -32 ]
+    [ 220, 150, 64, 64, -32, -32 ]
 }
 
-spritelayout example_building_green() {
+/* Next we take the item (0) from the array for tile a */
+
+spritelayout example_building_tile_a() {
     ground {
         sprite: GROUNDSPRITE_CONCRETE;
     }
@@ -394,7 +605,9 @@ spritelayout example_building_green() {
     }
 }
 
-spritelayout example_building_red() {
+/* Then we use item (1) for tile b */
+
+spritelayout example_building_tile_b() {
     ground {
         sprite: GROUNDSPRITE_CONCRETE;
     }
@@ -411,24 +624,33 @@ spritelayout example_building_red() {
     }
 }
 
-switch(FEAT_STATIONS, SELF, multi_tile_switch, rail_present) {
-    default: return example_building_green();
+/* We define a switch which will return either the first array, or the second. */
+/* This will depend on the platform number of the current tile. */
+
+switch (FEAT_STATIONS, SELF, switch_double_platform_constructor, platform_number_from_start(PLATFORM_SAME_SECTION)) {
+    0: building_1;
+    1: building_2;
 }
+
+/* Finally when defining the station object, we use the switch, rather than returning a static building spriteset. */
+/* The tile_flags property here marks the tile as being without caternary and isn't possible for a train to transit. */
 
 item(FEAT_STATIONS, example_building_1) {
     property {
         class:                  "BULD";
         classname:              string(STR_NAME_STATCLASS_EXAMPLE_BUILDING);
         name:                   string(STR_NAME_STATION_EXAMPLE_BUILDING);
-        cargo_threshold:        160;
-        non_traversable_tiles:  bitmask(1);
-        draw_pylon_tiles:       STAT_ALL_TILES;
+        tile_flags: [
+            bitmask(STAT_TILE_NOWIRE, STAT_TILE_BLOCKED),
+            bitmask(STAT_TILE_NOWIRE, STAT_TILE_BLOCKED)
+        ];
         disabled_platforms:     bitmask(1,3,4,5,6,7,8);
         disabled_length:        bitmask(2,3,4,5,6,7,8);
     }
     graphics {
-        sprite_layouts:         [example_building_green(), example_building_red()];
+        sprite_layouts:         [example_building_tile_a(), example_building_tile_b()];
         select_tile_type:       0;
         purchase:               building_1;
+        switch_double_platform_constructor;
     }
 }
