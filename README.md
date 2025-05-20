@@ -5,7 +5,7 @@ This is an illustrative station newGRF, primarily intended as a tool to help art
 
 No previous coding experience should be required to understand the structure and function the source, though NML can be a little daunting at first.
 
-I have included an overview of a basic build workflow. Creating a newGRF with NMLC is a very manual process. For this reason, there may be other, more suitable tools, such as [grf-py](https://github.com/citymania-org/grf-py?tab=readme-ov-file#grf-py). I would recommend checking these out too before starting here, as it may save you some time in the long run.
+I have included an overview of a basic build workflow. Creating a newGRF with NMLC is a very manual process. For this reason, there may be other, more suitable tools, such as [grf-py](https://github.com/citymania-org/grf-py?tab=readme-ov-file#grf-py). I would strongly recommend checking out these other tools before starting here. You may save some time in the long run!
 
 ## Getting Started
 To get started, you will need to setup Python on your computer and install the NML compiler (NMLC). You'll need to download (or clone) this repository and then compile it using NMLC. This should produce a functional newGRF, which you can add to your game.
