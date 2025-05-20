@@ -30,22 +30,17 @@ From the virtual environment, navigate to the project folder:
 `cd developer/example_stations`
 
 **Compile the newGRF**
-With everything setup, you can now instruct NMLC to compile the file. 
-`nmlc -c --grf example_stations.grf example_stations.nml`
-
-*Explanation:*
-- `nmlc -c --grf` instructs the NMLC runtime to compile the newGRF.
-- `example_stations.grf` is the name of the output file.
-- `example_stations.nml` is the name of the source file.
+With everything setup, you can now instruct the build process to compile the file. 
+`python build.py`
 
 ## Project Structure and Syntax
 #### Setting a grfid
-The first part of the NML file defines the GRF metadata. It is recommended that you immediately set the `grfid` to a new, unique value. If another GRF uses the same ID, both cannot be loaded into the same game.
+`src/header.nml` is used to setup and control the buold process. This uses a Python script to generate an NML file which is then used to compile the GRF, via NMLC. It is recommended that you immediately set the `grfid` to a new, unique value. If another GRF uses the same ID, both cannot be loaded into the same game.
 
 > It's convention to use the first three bytes for the creator's initials. The fourth byte typically identies which of the author's sets this is...
 
 #### Parsing the NML
-Each object in the source NML has the following structure:
+`src/example_1.nml` contains a range of objects, with some useful properties. In the source NML generally has the following structure:
 
 1. The spriteset is defined. These are the coordinates, bounds and offsets for the sprites on the source spritesheet. For a simple tile this will include two orientations, one facing SW/NE, the other SE/NW. 
 ```
@@ -123,7 +118,7 @@ item(FEAT_STATIONS, example_left) {
 }
 ```
 
-More examples can be found in the `example_stations.nml` source file.
+More examples can be found in the `example_1.nml` source file.
 
 ## Graphics Workflow
 This section provides a high level overview of the technical steps required to import and prepare artwork for use by NMLC and OpenTTD. 
