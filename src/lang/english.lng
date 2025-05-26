@@ -1,5 +1,5 @@
 ##grflangid 0x01
-STR_GRF_NAME                                                    :Example Stations v0.1
+STR_GRF_NAME                                                    :Example Stations v0.2
 STR_GRF_DESCRIPTION                                             :{ORANGE}Example Stations{}{BLACK}This is a simple example GRF with some templated station platforms.
 
 STR_VERSION_22723                                               :1.2.0 (r22723)

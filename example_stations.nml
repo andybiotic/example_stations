@@ -233,7 +233,6 @@ item(FEAT_STATIONS, example_south_end_left) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;
     }
     graphics {
         availability: switch_intro_year_example;
@@ -291,7 +290,6 @@ item(FEAT_STATIONS, example_south_end_right) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;
     }
     graphics {
         availability: switch_intro_year_example;
@@ -348,8 +346,7 @@ item(FEAT_STATIONS, example_north_end_left) {
     property {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
-        name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;  
+        name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);  
     }
     graphics {
         availability: switch_intro_year_example;
@@ -407,7 +404,6 @@ item(FEAT_STATIONS, example_north_end_right) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM_END);
-        cargo_threshold:        160;   
     }
     graphics {
         availability: switch_intro_year_example;
