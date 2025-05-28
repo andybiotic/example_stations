@@ -5,10 +5,7 @@ STR_GRF_DESCRIPTION                                             :{ORANGE}Example
 STR_VERSION_22723                                               :1.2.0 (r22723)
 
 STR_PARAM_DISABLE_UNLOCK_YEAR_NAME                              :Disable station introduction dates
-STR_PARAM_DISABLE_UNLOCK_YEAR_DESCRIPTION                       :Toggle whether all station types are available regardless of the in-game year.
-
-STR_PARAM_DISABLE_CARGO_AWARE_PLATFORMS_NAME                    :Disable cargo-aware platforms
-STR_PARAM_DISABLE_CARGO_AWARE_PLATFORMS_DESCRIPTION             :Toggle whether platforms show waiting passengers.
+STR_PARAM_DISABLE_UNLOCK_YEAR_DESCRIPTION                       :Toggle whether all station types are available regardless of the in-game year.                             :Extreme
 
 STR_NAME_STATCLASS                                              :Example Platforms
 
@@ -21,3 +18,4 @@ STR_NAME_STATION_EXAMPLE_PLATFORM_END                           :Example End
 STR_NAME_STATION_EXAMPLE_OVERBRIDGE                             :Example Overbridge
 
 STR_NAME_STATION_EXAMPLE_BUILDING                               :Example Building 
+

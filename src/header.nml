@@ -13,14 +13,6 @@ grf {
             desc: string(STR_PARAM_DISABLE_UNLOCK_YEAR_DESCRIPTION);
         }
     }
-    param 2 {
-        param_disable_cargo_aware_platforms {
-            type: bool;
-            name: string(STR_PARAM_DISABLE_CARGO_AWARE_PLATFORMS_NAME);
-            desc: string(STR_PARAM_DISABLE_CARGO_AWARE_PLATFORMS_DESCRIPTION);
-        }
-    }
-
 }
 
 if (version_openttd(1,2,0,22723) > openttd_version) {
