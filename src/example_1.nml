@@ -61,7 +61,7 @@ item(FEAT_STATIONS, example_left) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
-        cargo_threshold:        160;
+        cargo_threshold:        param_set_cargo_threshold*160;
     }
     graphics {
         sprite_layouts: [platform_left_sw_ne(0), platform_left_se_nw(0)];
@@ -133,7 +133,7 @@ item(FEAT_STATIONS, example_right) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
-        cargo_threshold:        160;
+        cargo_threshold:        param_set_cargo_threshold*160;
     }
     graphics {
         sprite_layouts: [platform_right_sw_ne(0), platform_right_se_nw(0)];

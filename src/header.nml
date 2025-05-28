@@ -13,6 +13,22 @@ grf {
             desc: string(STR_PARAM_DISABLE_UNLOCK_YEAR_DESCRIPTION);
         }
     }
+    param 2 {
+        param_set_cargo_threshold {
+            type: int;
+            name: string(STR_PARAM_SET_CARGO_THRESHOLD_NAME);
+            desc: string(STR_PARAM_SET_CARGO_THRESHOLD_DESCRIPTION);
+            min_value: 1;
+ 			max_value: 4;
+ 			def_value: 1;
+ 			names: {
+ 				1: string(STR_PARAM_SET_CARGO_THRESHOLD_1);
+ 				2: string(STR_PARAM_SET_CARGO_THRESHOLD_2);
+                3: string(STR_PARAM_SET_CARGO_THRESHOLD_3);
+                4: string(STR_PARAM_SET_CARGO_THRESHOLD_4);
+ 			};
+        }
+    }
 }
 
 if (version_openttd(1,2,0,22723) > openttd_version) {
