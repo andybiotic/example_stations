@@ -13,22 +13,6 @@ grf {
             desc: string(STR_PARAM_DISABLE_UNLOCK_YEAR_DESCRIPTION);
         }
     }
-    param 2 {
-        param_cargo_threshold {
-            type:    int;
-            name: string(STR_PARAM_CARGO_THRESHOLD_NAME);
-            desc: string(STR_PARAM_CARGO_THRESHOLD_DESCRIPTION);
-            min_value: 0;
- 			max_value: 2;
- 			def_value: 0;
- 			names: {
- 				0: string(STR_PARAM_CARGO_THRESHOLD_0);
- 				1: string(STR_PARAM_CARGO_THRESHOLD_1);
-                2: string(STR_PARAM_CARGO_THRESHOLD_2);
- 			};
-        }
-    }
-
 }
 
 if (version_openttd(1,2,0,22723) > openttd_version) {
@@ -111,7 +95,7 @@ item(FEAT_STATIONS, example_left) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
-        cargo_threshold:        if (param[2] == 0) { 160; } else { 4096; }
+        cargo_threshold:        160;
     }
     graphics {
         sprite_layouts: [platform_left_sw_ne(0), platform_left_se_nw(0)];
@@ -183,7 +167,7 @@ item(FEAT_STATIONS, example_right) {
         class:                  "XMPL";
         classname:              string(STR_NAME_STATCLASS_SINGLE_PLATFORMS);
         name:                   string(STR_NAME_STATION_EXAMPLE_PLATFORM);
-        cargo_threshold:        if (param[2] == 0) { 160; } else { 4096; }
+        cargo_threshold:        160;
     }
     graphics {
         sprite_layouts: [platform_right_sw_ne(0), platform_right_se_nw(0)];
